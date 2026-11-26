@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompts Accordion - RTO Administration</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            DEFAULT: '#1f2a52',
+                            hover: '#2a3a6e',
+                        },
+                        tealsoft: {
+                            DEFAULT: '#d2f0f0',
+                            border: '#b1dcdc',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white font-sans antialiased min-h-screen p-4 sm:p-6 md:p-12">
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto w-full space-y-6">
+
+        <!-- Short Prompt Accordion Item -->
+        <details class="group border border-navy rounded-lg overflow-hidden shadow-sm">
+            <summary class="list-none [&::-webkit-details-marker]:hidden flex items-center justify-between bg-navy hover:bg-navy-hover text-white cursor-pointer transition-colors duration-200 p-4 md:p-5">
+                <span class="text-xl md:text-2xl font-semibold select-none">Short Prompt</span>
+                <svg class="w-6 h-6 shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </summary>
+
+            <div class="bg-tealsoft text-gray-800 leading-relaxed border-t border-tealsoft-border p-5 md:p-8">
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                    <p id="short-prompt-text" class="text-base md:text-lg">
+                        I work in admin at an RTO. Write an email to a worried student explaining that their Statement of Attainment is delayed because of an issue with their USI. Tell them what they need to do next. Make it polite and clear.
+                    </p>
+                    <!-- Copy Prompt Button -->
+                    <button 
+                        type="button"
+                        onclick="copyPromptText('short-prompt-text', this)"
+                        class="self-start shrink-0 inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold bg-white/80 hover:bg-white text-navy border border-navy/20 shadow-sm transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-navy"
+                        aria-label="Copy Short Prompt">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        <span class="btn-label">Copy</span>
+                    </button>
+                </div>
+            </div>
+        </details>
+
+        <!-- Improved Prompt Accordion Item -->
+        <details class="group border border-navy rounded-lg overflow-hidden shadow-sm">
+            <summary class="list-none [&::-webkit-details-marker]:hidden flex items-center justify-between bg-navy hover:bg-navy-hover text-white cursor-pointer transition-colors duration-200 p-4 md:p-5">
+                <span class="text-xl md:text-2xl font-semibold select-none">Improved Prompt</span>
+                <svg class="w-6 h-6 shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </summary>
+
+            <div class="bg-tealsoft text-gray-800 leading-relaxed border-t border-tealsoft-border p-5 md:p-8">
+                <!-- Top Row with Intro and Copy Action -->
+                <div id="improved-prompt-text">
+                    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
+                        <p class="italic text-gray-700 text-base md:text-lg">
+                            I am a Student Administration Officer at a Registered Training Organisation (RTO). A worried student just visited the reception counter because they urgently need their Statement of Attainment for an employer, but we cannot issue it yet due to an unverified Unique Student Identifier (USI) name mismatch. Draft a supportive follow-up communication pack using the details below:
+                        </p>
+                        <!-- Copy Prompt Button -->
+                        <button 
+                            type="button"
+                            onclick="copyPromptText('improved-prompt-text', this)"
+                            class="self-start shrink-0 inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold bg-white/80 hover:bg-white text-navy border border-navy/20 shadow-sm transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-navy"
+                            aria-label="Copy Improved Prompt">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                            <span class="btn-label">Copy</span>
+                        </button>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Instructions Section -->
+                        <section>
+                            <h3 class="font-bold text-navy mb-2 text-base md:text-lg">Instructions</h3>
+                            <ul class="list-disc pl-6 space-y-2">
+                                <li>Create two clearly labelled sections: <strong>1. Student Follow-Up Email</strong> and <strong>2. Internal SMS File Note</strong>.</li>
+                                <li>In the email, acknowledge our conversation at reception, reassure the student, and explain in plain language that an RTO cannot legally issue a Statement of Attainment until their USI details match their enrolment record.</li>
+                                <li>Provide clear, step-by-step instructions on how the student can check and update their personal details via the USI Student Portal, or confirm the exact ID document they used when creating their USI.</li>
+                                <li>Clearly state what the student needs to reply with once updated, along with our expected turnaround time to issue their Statement of Attainment once verified.</li>
+                                <li>In the internal Student Management System (SMS) file note, write a brief, factual summary of the counter enquiry, the advice provided, and a follow-up action item.</li>
+                            </ul>
+                        </section>
+
+                        <!-- Behaviours Section -->
+                        <section>
+                            <h3 class="font-bold text-navy mb-2 text-base md:text-lg">Behaviours</h3>
+                            <ul class="list-disc pl-6 space-y-2">
+                                <li>Maintain a warm, calm, empathetic, and reassuring tone in the student email to help ease their stress while keeping compliance requirements clear.</li>
+                                <li>Avoid blaming the student or using heavy administrative jargon—keep explanations simple and action-oriented.</li>
+                                <li>Keep the internal SMS file note objective, concise, and professional.</li>
+                            </ul>
+                        </section>
+
+                        <!-- Other Considerations Section -->
+                        <section>
+                            <h3 class="font-bold text-navy mb-2 text-base md:text-lg">Other Considerations</h3>
+                            <ul class="list-disc pl-6 space-y-2">
+                                <li>Use <code>[square brackets]</code> as placeholders for all personal details (e.g., <code>[Student First Name]</code>, <code>[Unit/Course Title]</code>, <code>[Admin Contact Number]</code>) to protect student privacy when using AI.</li>
+                                <li>Format the student action steps as a short numbered list so the email is easy to read on a mobile phone.</li>
+                                <li>Include a brief checklist table at the end of the internal note showing what admin must verify before releasing the certificate.</li>
+                                <li>Use <strong>Australian English</strong> (e.g., 'organisation', 'enrolment', 'apologise') and standard Australian VET terminology.</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+    </main>
+
+    <!-- Clipboard Helper Script (iframe-safe using execCommand) -->
+    <script>
+        /**
+         * Copies the text content of a target prompt container to the clipboard,
+         * excluding the copy button label itself, and displays visual confirmation.
+         *
+         * @param {string} containerId - ID of the element containing the prompt text
+         * @param {HTMLElement} buttonEl - Button element clicked by the user
+         */
+        function copyPromptText(containerId, buttonEl) {
+            try {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+
+                // Clone container so we can strip any button elements before extracting clean text
+                const clone = container.cloneNode(true);
+                const buttons = clone.querySelectorAll('button');
+                buttons.forEach(btn => btn.remove());
+
+                const textToCopy = clone.innerText.replace(/\n{3,}/g, '\n\n').trim();
+
+                // Create temporary textarea for reliable iframe clipboard support
+                const tempTextArea = document.createElement('textarea');
+                tempTextArea.value = textToCopy;
+                tempTextArea.setAttribute('readonly', '');
+                tempTextArea.style.position = 'fixed';
+                tempTextArea.style.opacity = '0';
+                document.body.appendChild(tempTextArea);
+                tempTextArea.select();
+
+                document.execCommand('copy');
+                document.body.removeChild(tempTextArea);
+
+                // Provide non-intrusive visual feedback on the button
+                const labelSpan = buttonEl.querySelector('.btn-label');
+                if (labelSpan) {
+                    const originalText = labelSpan.textContent;
+                    labelSpan.textContent = 'Copied!';
+                    buttonEl.classList.add('bg-navy', 'text-white');
+                    buttonEl.classList.remove('bg-white/80', 'text-navy');
+
+                    setTimeout(() => {
+                        labelSpan.textContent = originalText;
+                        buttonEl.classList.remove('bg-navy', 'text-white');
+                        buttonEl.classList.add('bg-white/80', 'text-navy');
+                    }, 2000);
+                }
+            } catch (err) {
+                console.error('Unable to copy prompt text:', err);
+            }
+        }
+    </script>
+</body>
+</html>
